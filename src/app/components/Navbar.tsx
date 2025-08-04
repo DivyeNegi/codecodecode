@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
 import Image from 'next/image';
+import { useAuthModalStore } from '@/store/authModalStore';
 
 type navbarProps = {
 
@@ -16,7 +17,7 @@ const Navbar: React.FC<navbarProps> = () => {
             <button
                 className='bg-brand-orange text-white px-2 py-1 sm:px-4 rounded-md text-sm font-medium
                 hover:text-brand-orange hover:bg-white hover:border-2 hover:text-black hover:border-brand-orange border-2 border-transparent
-                transition duration-300 ease-in-out'
+                transition duration-300 ease-in-out' onClick={() => useAuthModalStore.setState({ isOpen: true, type: 'login' })}
             >
                 Sign In
             </button>
